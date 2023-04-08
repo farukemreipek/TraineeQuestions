@@ -1,4 +1,6 @@
-﻿public class EntityRow
+﻿using System.Collections.Generic;
+
+public class EntityRow
 {
     public int FloorNumber { get; set; }
 

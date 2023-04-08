@@ -1,4 +1,6 @@
-﻿public class Entity
+﻿using System.Collections.Generic;
+
+public class Entity
 {
     public string SchoolName { get; set; }
 

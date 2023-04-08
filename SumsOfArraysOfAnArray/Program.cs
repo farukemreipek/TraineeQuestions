@@ -2,7 +2,7 @@
 
 int[] Calculate(int[][] values)
 {
-    
+    return default;
 }
 
 int[][] testData = { new int[] { 1, 2 }, new int[] { 2, 2 }, new int[] { 3, 2 } };

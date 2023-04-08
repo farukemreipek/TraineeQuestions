@@ -1,7 +1,10 @@
 ﻿// Calculate each schools classroom count for the given floor. Assign them to a dto. In the end, we should know each school's, each floor's classroom count.
 
+using System.Collections.Generic;
+
 List<Result> Calculate(List<Entity> data)
 {
+    return default;
     
 }
 
