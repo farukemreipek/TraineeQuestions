@@ -1,4 +1,6 @@
-﻿public class Result
+﻿using System.Collections.Generic;
+
+public class Result
 {
     public string SchoolName { get; set; }
     public List<ResultRow> ClassRoomCounts { get; set; }
