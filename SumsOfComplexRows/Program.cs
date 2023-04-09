@@ -1,14 +1,20 @@
-﻿// Calculate each schools classroom count for the given floor. Assign them to a dto. In the end, we should know each school's, each floor's classroom count.
-
+﻿
+using SumsOfComplexRows;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
-List<Result> Calculate(List<Entity> data)
+namespace SumsOfComplexRows
 {
-    return default;
-    
-}
-
-var testData = new List<Entity>
+    // Calculate each schools classroom count for the given floor. Assign them to a dto. In the end, we should know each school's, each floor's classroom count.
+    //Verilen kat için her okulun sınıf sayısını hesaplayın.
+    //Onları bir dto'ya atayın. Sonunda, her okulun
+    //her katın derslik sayısını bilmeliyiz.
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var testData = new List<Entity>
 {
     new Entity
     {
@@ -98,3 +104,55 @@ var testData = new List<Entity>
         }
     },
 };
+            var results = Math.Calculate(testData);
+
+            foreach (var result in results)
+            {
+                Console.WriteLine($"School Name: {result.SchoolName}");
+
+                foreach (var row in result.ClassRoomCounts)
+                {
+                    Console.WriteLine($"Floor Number: {row.FloorNumber}, Class Room Count: {row.ClassRoomCount}");
+                }
+
+                Console.WriteLine();
+            }
+        }
+    }
+}
+
+public class Math
+{
+    public static List<ResultDto> Calculate(List<Entity> data)
+    {
+        var results = new List<ResultDto>();
+
+        foreach (var entity in data)
+        {
+            var result = new ResultDto
+            {
+                SchoolName = entity.SchoolName,
+                ClassRoomCounts = new List<ResultRowDto>()
+            };
+
+            foreach (var row in entity.ClassroomsByFloor)
+            {
+                var resultRow = new ResultRowDto
+                {
+                    FloorNumber = row.FloorNumber,
+                    ClassRoomCount = row.ClassroomNames.Count
+                };
+
+                result.ClassRoomCounts.Add(resultRow);
+            }
+
+            results.Add(result);
+        }
+
+        return results;
+    }
+}
+
+
+
+
